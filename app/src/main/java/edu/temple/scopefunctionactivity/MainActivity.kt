@@ -27,11 +27,12 @@ class MainActivity : AppCompatActivity() {
     // Look at the final/return value and build the function "working backwards"
 
     // Return a list of random, sorted integers
-    private fun getTestDataArray() : List<Int> {
-        val testArray = MutableList(10){ Random.nextInt()}
-        testArray.sort()
-        return testArray
-    }
+//    private fun getTestDataArray() : List<Int> {
+//        val testArray = MutableList(10){ Random.nextInt()}
+//        testArray.sort()
+//        return testArray
+//    }
+    private fun getTestDataArray(): List<Int> = MutableList(10) { Random.nextInt() }.apply { sort() }
 
     // Return true if average value in list is greater than median value, false otherwise
     private fun averageLessThanMedian(listOfNumbers: List<Double>): Boolean {
