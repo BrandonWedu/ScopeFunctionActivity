@@ -13,6 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Log.d("function output", getTestDataArray().toString())
+
+        Log.d("function output", averageLessThanMedian(getTestDataArray()).toString())
+
+
+
         // You can test your helper functions by  calling them from onCreate() and
         // printing their output to the Log, which is visible in the LogCat:
         // eg. Log.d("function output", getTestDataArray().toString())
@@ -32,8 +38,9 @@ class MainActivity : AppCompatActivity() {
 //        val testArray = MutableList(10){ Random.nextInt()}
 //        testArray.sort()
 //        return testArray
+//
 //    }
-    private fun getTestDataArray(): List<Int> = MutableList(10) { Random.nextInt() }.apply { sort() }
+    private fun getTestDataArray(): List<Double> = MutableList(10) { Random.nextDouble() }.apply { sort() }
 
     // Return true if average value in list is greater than median value, false otherwise
 
@@ -74,6 +81,12 @@ class MainActivity : AppCompatActivity() {
 //
 //        return textView
 //    }
-
+    private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View =
+        (recycledView as? TextView ?: TextView(context).apply {
+            setPadding(5, 10, 10, 0)
+            textSize = 22f
+        }).apply {
+            text = collection[position].toString()
+        }
 
 }
